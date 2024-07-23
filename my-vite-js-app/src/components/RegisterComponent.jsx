@@ -28,29 +28,36 @@ const RegisterComponent = ({ onRegisterSuccess }) => {
 
     return (
         <div className="register-container">
-            <h2>Register</h2>
-            {error && <p className="error">{error}</p>}
-            {success && <p className="success">{success}</p>}
+            <h2 className="text-2xl font-bold mb-4">Register</h2>
+            {error && <p className="error text-red-500">{error}</p>}
+            {success && <p className="success text-green-500">{success}</p>}
             <form onSubmit={handleRegister}>
-                <div>
-                    <label>Username:</label>
-                    <input 
-                        type="text" 
+                <div className="mb-4">
+                    <label className="block text-gray-700">Username:</label>
+                    <input
+                        type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        required 
+                        required
+                        className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     />
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <input 
-                        type="password" 
+                <div className="mb-4">
+                    <label className="block text-gray-700">Password:</label>
+                    <input
+                        type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        required 
+                        required
+                        className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     />
                 </div>
-                <button type="submit">Register</button>
+                <button
+                    type="submit"
+                    className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                >
+                    Register
+                </button>
             </form>
         </div>
     );

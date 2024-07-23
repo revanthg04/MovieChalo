@@ -92,4 +92,29 @@
     border-radius: 50% / 100px 100px 0 0; /* Adjust for a smooth curve */
     margin-left: 20px;
 }
+/* Back button styles */
+.back-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1d4ed8; /* Tailwind's blue-500 */
+    background-color: transparent;
+    border: 1px solid #1d4ed8; /* Tailwind's blue-500 */
+    border-radius: 0.375rem; /* Tailwind's rounded-md */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #1d4ed8; /* Tailwind's blue-500 */
+    color: #ffffff; /* White color for text */
+    border-color: #1d4ed8; /* Tailwind's blue-500 */
+}
+
+.back-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.5); /* Tailwind's blue-500 with opacity */
+}
 

@@ -12,29 +12,32 @@ const MainComponent = () => {
         setIsAuthenticated(true);
         setUsername(username);
     };
+
     const handleRegisterSuccess = () => {
         setShowRegister(false);
     };
-    
 
-    
     return (
-        <div>
-            {!isAuthenticated ? (
-                <>
-                {showRegister ? (
-                    <RegisterComponent onRegisterSuccess={handleRegisterSuccess} />
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+            
+                {!isAuthenticated ? (
+                    <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+                        {showRegister ? (
+                            <RegisterComponent onRegisterSuccess={handleRegisterSuccess} />
+                        ) : (
+                            <LoginComponent onLoginSuccess={handleLoginSuccess} />
+                        )}
+                        <button
+                            className="mt-4 w-full text-center py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+                            onClick={() => setShowRegister(!showRegister)}
+                        >
+                            {showRegister ? 'Go to Login' : 'Go to Register'}
+                        </button>
+                        </div>
                 ) : (
-                    <LoginComponent onLoginSuccess={handleLoginSuccess} />
+                    <SeatingArrangement isAuthenticated={isAuthenticated} userID={username} />
                 )}
-                <button onClick={() => setShowRegister(!showRegister)}>
-                    {showRegister ? 'Go to Login' : 'Go to Register'}
-                </button>
-            </>
-                
-            ) : (
-                <SeatingArrangement isAuthenticated={isAuthenticated} userID={username} />
-            )}
+            
         </div>
     );
 };
